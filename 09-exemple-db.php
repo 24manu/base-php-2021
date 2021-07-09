@@ -1,9 +1,6 @@
 <?php
 // $_POST existe par défaut en tant que tableau, lorsqu'on récupère un formulaire, il devient un tableau associatif contenant les valeurs
 // var_dump($_POST);
-<<<<<<< HEAD
-$connexionDB = mysqli_connect("localhost" "root", "", "exe9", 3307);
-=======
 
 
 // connexion à la DB
@@ -29,16 +26,11 @@ if(!empty($_POST)){ // non vide
 
 
 // récupération des commentaires de la table goldenbook
->>>>>>> 8a32bc29fdf05cc00e0f1df24d3fe2f6031f49d9
 $recupComments = mysqli_query($connexionDB, "SELECT * FROM goldenbook ORDER BY thedate DESC;");
 $nbComment = mysqli_num_rows($recupComments);
-<<<<<<< HEAD
-$datasComment = mysqli_fetch_assoc()
-=======
 
 // transformation des données en tableau associatif
 $datasComment = mysqli_fetch_all($recupComments, MYSQLI_ASSOC);
->>>>>>> 8a32bc29fdf05cc00e0f1df24d3fe2f6031f49d9
 ?>
 <html>
     <head>
@@ -52,12 +44,6 @@ $datasComment = mysqli_fetch_all($recupComments, MYSQLI_ASSOC);
             <textarea name="thetext" placeholder="Votre texte" required></textarea><br> 
             <input type='submit' value='Envoyer'/><br>
         </form>
-<<<<<<< HEAD
-        <h3>Nous avons x commentaires</h3>
-        <h4>Le nom</h4>
-        <p>écrit</p>
-        <p>Le...date</p><hr>
-=======
         <h3>Nous avons <?=$nbComment?> commentaires</h3>
         <?php
         // var_dump($datasComment);
@@ -69,7 +55,6 @@ $datasComment = mysqli_fetch_all($recupComments, MYSQLI_ASSOC);
         <?php
         endforeach;
         ?>
->>>>>>> 8a32bc29fdf05cc00e0f1df24d3fe2f6031f49d9
     </body>
 
 </html>
