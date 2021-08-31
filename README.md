@@ -1,5 +1,5 @@
 # base-php-2021
-Bases de PHP 7.4 et 8
+Bases de PHP 7.4 et 8.*
 
 ## Windows
 Pour installer Wamp sous Windows, suivez le lien ci-dessous:
