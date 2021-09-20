@@ -24,9 +24,9 @@ function frenchDate($date,$format=1){
 
     // Les jours en français
     $joursTab = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"];
-
-    // Les mois en français
     
+    // Les mois en français
+    $moisTab = [1=>"janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
 
     // transformation de la date en Timestamp (secondes depuis le 1/1/1970 )
     $date = strtotime($date);
@@ -35,10 +35,14 @@ function frenchDate($date,$format=1){
         $out.="Le "
                 .$joursTab[date("w",$date)]." " // jour de la semaine en français
                 .date("d",$date)." " // chiffre du jour
-                .date("F",$date)." " // mois en français
+                .$moisTab[date("n",$date)]." " // mois en français
                 .date("Y à H:i",$date); // année / heures / minutes
     }elseif($format===2){
-
+        $out.="Le "
+                .$joursTab[date("w",$date)]." " // jour de la semaine en français
+                .date("d",$date)." " // chiffre du jour
+                .$moisTab[date("n",$date)]." " // mois en français
+                .date("Y à H:i",$date); // année / heures / minutes
     }elseif($format===3){
 
     }else{
