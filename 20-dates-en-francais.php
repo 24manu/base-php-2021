@@ -39,12 +39,22 @@ function frenchDate($date,$format=1){
                 .date("Y à H:i",$date); // année / heures / minutes
     }elseif($format===2){
         $out.="Le "
+                .date("d",$date)." " // chiffre du jour
+                //.$joursTab[date("w",$date)]." " // jour de la semaine en français
+                .$moisTab[date("n",$date)]." " // mois en français
+                .date("Y à H\hi",$date); // année / heures / minutes
+    }elseif($format===3){
+        $out.="Le "
                 .$joursTab[date("w",$date)]." " // jour de la semaine en français
                 .date("d",$date)." " // chiffre du jour
                 .$moisTab[date("n",$date)]." " // mois en français
-                .date("Y à H:i",$date); // année / heures / minutes
-    }elseif($format===3){
-
+                .date("Y à ",$date); // année / heures / minutes
+        $h = date("H",$date);
+        if($h >= 2) {
+            $out.=$h."heures";
+        }else{
+            $out.=$h."heure";
+        }   
     }else{
          return "Format de date non reconnue";   
     }
@@ -52,7 +62,7 @@ function frenchDate($date,$format=1){
 }
 
 // date en datetime
-$date1 = "2019-07-15 09:11:05";
+$date1 = "2019-07-15 01:11:05";
 $date2 = "2024-05-07 23:44:17";
 $date3 = "2024-05-10 19:07:17";
 
