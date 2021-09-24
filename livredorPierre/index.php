@@ -4,7 +4,7 @@
 EXE 3 remplacer les conditions strictes par les simplifiées
 Lignes  21
 Lignes  43
-Lignes  88 -> utilisation de empty()
+Lignes  82 -> utilisation de empty()
 
 */
 
@@ -17,7 +17,7 @@ $connectDB = @mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME, DB_PORT);
 
 // si on a un problème lors de la connexion, qui vaut alors false, on peut utiliser if(!connectDB) ou if(mysqli_connect_error()) ou if(mysqli_connect_errno())
 // ceci est un gestionnaire d'erreur
-if ($connectDB === false) {
+if (!$connectDB) {
     // le die() arrête le script (exit()) et affiche le texte entre parenthèses
     die("Problème lors de la connexion :" . mysqli_connect_error());
 }
@@ -39,7 +39,7 @@ $requestDB = mysqli_query($connectDB, $sql) or die("Problème lors de la requêt
 $nbMessage = mysqli_num_rows($requestDB);
 
 // si on a au moins un message (0=> false, 1 ou plus => true)
-if($nbMessage==true){
+if($nbMessage){
     // si on a un message OU plusieurs messages, on va toujours utiliser les mysqli_fetch_all avec le flag: MYSQLI_ASSOC
     $messages = mysqli_fetch_all($requestDB,MYSQLI_ASSOC);
 }
@@ -77,8 +77,8 @@ if($nbMessage==true){
         </div>
         <!-- Cette section doit être affichée quand il n'y a encore aucun message -->
         <?php
-        // pas de message
-        if($nbMessage===0){
+        // pas de message empty vérifie si une variable est vide (0, "")
+        if(empty($nbMessage)){
         ?>
             <section class="no-msg">
                 <h2>Il n'y a pas de message à afficher</h2>
@@ -121,16 +121,27 @@ if($nbMessage==true){
             on affiche le menu
          Sinon
             on ne l'affiche pas   
+
          */
 
+        if($nbMessage>4){ 
         // on importe le fichier contenant le menu, autant de fois qu'on le souhaite, et permet l'erreur (affichage du reste de la page)
+<<<<<<< HEAD
         
+=======
+            include "menu.php";
+        }
+>>>>>>> 67cdcfa1e96432947560f1816cc9ca9e9750abe6
 
         ?>
     </nav>
     <footer>
         <!-- EXE 2 année en 4 chiffres, qui change suivant l'année -->
+<<<<<<< HEAD
         <p>Réalisé par Pierre, dans le cadre de la formation Web Développeur du ©CF2m - <?php echo date('Y');?></p>
+=======
+        <p>Réalisé par Pierre, dans le cadre de la formation Web Développeur du ©CF2m - <strong><?=date("Y")?></strong> </p>
+>>>>>>> 67cdcfa1e96432947560f1816cc9ca9e9750abe6
     </footer>
 </body>
 
