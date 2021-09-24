@@ -6,7 +6,6 @@ Lignes  21
 Lignes  43
 Lignes  88 -> utilisation de empty()
 
-       
 */
 
 
@@ -113,7 +112,9 @@ if($nbMessage==true){
     </main>
     <nav>
         <?php
-
+        if($nbMessage>=4){
+            include "menu.php";
+        }
         /*
         EXERCICE
          Si j'ai plus que 4 messages
@@ -123,13 +124,13 @@ if($nbMessage==true){
          */
 
         // on importe le fichier contenant le menu, autant de fois qu'on le souhaite, et permet l'erreur (affichage du reste de la page)
-        include "menu.php";
+        
 
         ?>
     </nav>
     <footer>
         <!-- EXE 2 année en 4 chiffres, qui change suivant l'année -->
-        <p>Réalisé par Pierre, dans le cadre de la formation Web Développeur du ©CF2m - 2021 </p>
+        <p>Réalisé par Pierre, dans le cadre de la formation Web Développeur du ©CF2m - <?php echo date('Y');?></p>
     </footer>
 </body>
 
