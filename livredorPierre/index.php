@@ -126,22 +126,13 @@ if($nbMessage){
 
         if($nbMessage>4){ 
         // on importe le fichier contenant le menu, autant de fois qu'on le souhaite, et permet l'erreur (affichage du reste de la page)
-<<<<<<< HEAD
         
-=======
-            include "menu.php";
-        }
->>>>>>> 67cdcfa1e96432947560f1816cc9ca9e9750abe6
 
         ?>
     </nav>
     <footer>
         <!-- EXE 2 année en 4 chiffres, qui change suivant l'année -->
-<<<<<<< HEAD
         <p>Réalisé par Pierre, dans le cadre de la formation Web Développeur du ©CF2m - <?php echo date('Y');?></p>
-=======
-        <p>Réalisé par Pierre, dans le cadre de la formation Web Développeur du ©CF2m - <strong><?=date("Y")?></strong> </p>
->>>>>>> 67cdcfa1e96432947560f1816cc9ca9e9750abe6
     </footer>
 </body>
 
